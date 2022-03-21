@@ -1,0 +1,22 @@
+{
+  "id": "urn:ietf:params:scim:schemas:extension:idporten:2.0:User",
+  "name": "ID-porten User",
+  "description": "ID-porten User Schema",
+  "attributes": [
+    {
+      "name": "idporten-special-attribute",
+      "type": "string",
+      "multiValued": false,
+      "required": true,
+      "caseExact": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": "none",
+      "description": "A special attribute in ID-porten"
+    }
+  ],
+  "meta": {
+    "resourceType": "Schema",
+    "location": "https://localhost:8080/scim/v2/Schemas/urn:ietf:params:scim:schemas:extension:idporten:2.0:User"
+  }
+}
