@@ -3,7 +3,9 @@ package no.idporten.scim.sdk;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import no.idporten.scim.sdk.schema.Meta;
 import no.idporten.scim.sdk.schema.Schema;
 
 import java.net.URI;
@@ -17,6 +19,10 @@ import java.util.stream.Collectors;
 public class ScimResource {
 
     private List<URI> schemas = new ArrayList<>();
+    private String id;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private Meta meta;
 
     public ScimResource() {
     }

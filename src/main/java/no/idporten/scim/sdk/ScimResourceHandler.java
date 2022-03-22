@@ -4,11 +4,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import no.idporten.scim.sdk.domain.ScimProperty;
 import no.idporten.scim.sdk.schema.Attribute;
+import no.idporten.scim.sdk.schema.Meta;
 import no.idporten.scim.sdk.schema.Schema;
 import no.idporten.scim.sdk.schema.ScimSchemaRegistry;
 import org.springframework.util.ReflectionUtils;
 
 import java.net.URI;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -46,8 +49,10 @@ public class ScimResourceHandler {
                 field -> {
                     field.setAccessible(true);
                     ScimProperty scimProperty = field.getAnnotation(ScimProperty.class);
-                    Schema schema = schemaRegistry.getSchema(URI.create(scimProperty.schema()));
-                    ReflectionUtils.setField(field, instance, scimResource.getAttribute(schema, scimProperty.attributeName()));
+                    if (! "meta".equals(scimProperty.schema())) {
+                        Schema schema = schemaRegistry.getSchema(URI.create(scimProperty.schema()));
+                        ReflectionUtils.setField(field, instance, scimResource.getAttribute(schema, scimProperty.attributeName()));
+                    }
                 },
                 field -> field.isAnnotationPresent(ScimProperty.class)
         );
@@ -67,8 +72,15 @@ public class ScimResourceHandler {
                 field -> {
                     field.setAccessible(true);
                     ScimProperty scimProperty = field.getAnnotation(ScimProperty.class);
-                    Schema schema = schemaRegistry.getSchema(URI.create(scimProperty.schema()));
-                    scimResource.setAttribute(schema, scimProperty.attributeName(), field.get(object));
+                    if ("meta".equals(scimProperty.schema())) { // TODO meta må håndteres bedre!
+                        Meta meta = new Meta();
+                        meta.setCreated((ZonedDateTime) field.get(object));
+                        scimResource.setMeta(meta);
+                    } else {
+                        Schema schema = schemaRegistry.getSchema(URI.create(scimProperty.schema()));
+                        scimResource.setAttribute(schema, scimProperty.attributeName(), field.get(object));
+                    }
+
                 },
                 field -> field.isAnnotationPresent(ScimProperty.class)
         );

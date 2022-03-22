@@ -5,7 +5,9 @@
   ],
   "id": "12829499914",
   "userName": "12829499914",
+  "active": true,
   "urn:ietf:params:scim:schemas:extension:idporten:2.0:User": {
     "idporten-special-attribute": "idporten!"
   }
+
 }
