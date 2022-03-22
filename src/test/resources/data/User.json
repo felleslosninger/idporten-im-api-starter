@@ -1,7 +1,10 @@
 {
-  "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User", "urn:ietf:params:scim:schemas:extension:idporten:2.0:User"],
-  "id":"12829499914",
-  "userName":"12829499914",
+  "schemas": [
+    "urn:ietf:params:scim:schemas:core:2.0:User",
+    "urn:ietf:params:scim:schemas:extension:idporten:2.0:User"
+  ],
+  "id": "12829499914",
+  "userName": "12829499914",
   "urn:ietf:params:scim:schemas:extension:idporten:2.0:User": {
     "idporten-special-attribute": "idporten!"
   }

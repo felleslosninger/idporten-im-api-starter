@@ -9,6 +9,7 @@ import no.idporten.scim.sdk.schema.ScimSchemaRegistry;
 import org.springframework.util.ReflectionUtils;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -51,6 +52,27 @@ public class ScimResourceHandler {
                 field -> field.isAnnotationPresent(ScimProperty.class)
         );
         return instance;
+    }
+
+    /**
+     * Convert a domain class to a scim resource
+     * @param object
+     * @param schemas
+     * @return
+     */
+    public ScimResource convert(Object object, List<URI> schemas) {
+        ScimResource scimResource = new ScimResource();
+        scimResource.setSchemas(schemas);
+        ReflectionUtils.doWithFields(object.getClass(),
+                field -> {
+                    field.setAccessible(true);
+                    ScimProperty scimProperty = field.getAnnotation(ScimProperty.class);
+                    Schema schema = schemaRegistry.getSchema(URI.create(scimProperty.schema()));
+                    scimResource.setAttribute(schema, scimProperty.attributeName(), field.get(object));
+                },
+                field -> field.isAnnotationPresent(ScimProperty.class)
+        );
+        return scimResource;
     }
 
 }
