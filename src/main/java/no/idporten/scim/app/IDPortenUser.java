@@ -29,10 +29,10 @@ public class IDPortenUser {
     private List<String> ejournalReferanse;
 
     // Sperrekoder: https://github.com/felleslosninger/eid-common/blob/master/kontaktinfo-lib-common/src/main/java/no/difi/kontaktregister/dto/DeleteUsersCause.java
-    @ScimAttribute(schema = "urn:ietf:params:scim:schemas:extension:idporten:2.0:User", attributeName = "idporten-closed-code")
+    @ScimAttribute(schema = "urn:ietf:params:scim:schemas:extension:status:2.0:User", attributeName = "closed-code")
     private String closedCode;
 
-    @ScimAttribute(schema = "urn:ietf:params:scim:schemas:extension:idporten:2.0:User", attributeName = "idporten-closed-date")
+    @ScimAttribute(schema = "urn:ietf:params:scim:schemas:extension:status:2.0:User", attributeName = "closed-date")
     private ZonedDateTime closedDate;
 
 

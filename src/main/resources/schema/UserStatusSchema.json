@@ -1,0 +1,33 @@
+{
+  "id": "urn:ietf:params:scim:schemas:extension:status:2.0:User",
+  "name": "ID-porten User",
+  "description": "ID-porten User Schema",
+  "attributes": [
+    {
+      "name": "closed-code",
+      "type": "string",
+      "multiValued": false,
+      "required": false,
+      "caseExact": true,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": "none",
+      "description": "Status code for closed/inactive user"
+    },
+    {
+      "name": "closed-date",
+      "type": "dateTime",
+      "multiValued": false,
+      "required": false,
+      "caseExact": true,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": "none",
+      "description": "Date for status change"
+    }
+  ],
+  "meta": {
+    "resourceType": "Schema",
+    "location": "https://localhost:8080/scim/v2/Schemas/urn:ietf:params:scim:schemas:extension:idporten:2.0:User"
+  }
+}

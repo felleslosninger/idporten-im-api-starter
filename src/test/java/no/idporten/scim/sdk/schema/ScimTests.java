@@ -38,7 +38,7 @@ public class ScimTests {
 
         // valider input mot skjema
         scimResourceHandler.validate(userResource);
-        System.out.println("userResource = " + userResource);
+        System.out.println("Validated userResource = " + userResource);
 
         // konverter input til intern modell
         IDPortenUser idPortenUser = scimResourceHandler.convert(userResource, IDPortenUser.class);

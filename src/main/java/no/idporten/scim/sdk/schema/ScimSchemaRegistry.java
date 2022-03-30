@@ -18,7 +18,7 @@ public class ScimSchemaRegistry {
 
     @SneakyThrows
     public void init() {
-        List<String> schemaLocations = Arrays.asList("classpath:/schema/UserSchema.json", "classpath:/schema/IDportenUserSchema.json");
+        List<String> schemaLocations = Arrays.asList("classpath:/schema/UserSchema.json", "classpath:/schema/IDportenUserSchema.json", "classpath:/schema/UserStatusSchema.json");
         ObjectMapper objectMapper = new ObjectMapper();
         for (String schemaLocation : schemaLocations) {
             Schema schema = objectMapper.readValue(new DefaultResourceLoader().getResource(schemaLocation).getFile(), Schema.class);

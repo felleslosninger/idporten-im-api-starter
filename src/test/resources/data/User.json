@@ -1,14 +1,18 @@
 {
   "schemas": [
     "urn:ietf:params:scim:schemas:core:2.0:User",
-    "urn:ietf:params:scim:schemas:extension:idporten:2.0:User"
+    "urn:ietf:params:scim:schemas:extension:idporten:2.0:User",
+    "urn:ietf:params:scim:schemas:extension:status:2.0:User"
   ],
   "id": "12829499914",
   "userName": "12829499914",
   "active": true,
   "urn:ietf:params:scim:schemas:extension:idporten:2.0:User": {
-    "idporten-special-attribute": "idporten!",
+    "idporten-ignored-attribute": "idporten!",
     "idporten-ejournal-references": ["12345", "67890"]
+  },
+  "urn:ietf:params:scim:schemas:extension:status:2.0:User": {
+    "closed-code": "ID-TYVERI"
   },
   "meta" : {
     "note": "meta should be ignored on parsing",
