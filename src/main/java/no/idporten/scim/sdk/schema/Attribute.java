@@ -9,6 +9,16 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Attribute {
 
+    public enum Type {
+        string, BOOLEAN, decimal, integer, dateTime, binary, reference, complex;
+
+        @JsonValue
+        public String jsonValue() {
+            return name().equals("BOOLEAN") ? "boolean" : name();
+        }
+
+    }
+
     public enum Mutability {
         readOnly, readWrite, immutable, writeOnly;
     }
@@ -27,9 +37,10 @@ public class Attribute {
     }
 
     private String name;
-    private String type;
+    private Type type;
     private boolean required;
     private Mutability mutability;
     private Returned returned;
+    private boolean multiValued;
 
 }

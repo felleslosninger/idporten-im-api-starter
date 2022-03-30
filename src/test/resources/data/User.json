@@ -7,7 +7,11 @@
   "userName": "12829499914",
   "active": true,
   "urn:ietf:params:scim:schemas:extension:idporten:2.0:User": {
-    "idporten-special-attribute": "idporten!"
+    "idporten-special-attribute": "idporten!",
+    "idporten-ejournal-references": ["12345", "67890"]
+  },
+  "meta" : {
+    "note": "meta should be ignored on parsing",
+    "created" : "2022-03-22T14:09:05Z"
   }
-
 }

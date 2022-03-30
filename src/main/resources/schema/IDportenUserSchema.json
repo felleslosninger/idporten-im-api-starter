@@ -4,15 +4,37 @@
   "description": "ID-porten User Schema",
   "attributes": [
     {
-      "name": "idporten-special-attribute",
+      "name": "idporten-closed-code",
       "type": "string",
       "multiValued": false,
-      "required": true,
-      "caseExact": false,
+      "required": false,
+      "caseExact": true,
       "mutability": "readWrite",
       "returned": "default",
       "uniqueness": "none",
-      "description": "A special attribute in ID-porten"
+      "description": "Reason code for closed/inactive user"
+    },
+    {
+      "name": "idporten-closed-date",
+      "type": "dateTime",
+      "multiValued": false,
+      "required": false,
+      "caseExact": true,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": "none",
+      "description": "Reason code for closed/inactive user"
+    },
+    {
+      "name": "idporten-ejournal-references",
+      "type": "string",
+      "multiValued": true,
+      "required": false,
+      "caseExact": true,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": "none",
+      "description": "eJournal references"
     }
   ],
   "meta": {

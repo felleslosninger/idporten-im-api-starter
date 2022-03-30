@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Objects;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -22,6 +23,13 @@ public class Schema {
 
     public boolean isCoreSchema() {
         return id.getSchemeSpecificPart().contains("core");
+    }
+
+    public Attribute getAttribute(String name) {
+        return attributes.stream()
+                .filter(attribute -> Objects.equals(name, attribute.getName()))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(String.format("Unknown attribute [%s] in schema [%s]", name, id)));
     }
 
 }

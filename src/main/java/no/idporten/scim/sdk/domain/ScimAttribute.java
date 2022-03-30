@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface ScimProperty {
+public @interface ScimAttribute {
 
     String schema() default "";
     String attributeName() default "";

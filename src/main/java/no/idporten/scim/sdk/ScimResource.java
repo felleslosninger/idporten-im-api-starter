@@ -32,7 +32,6 @@ public class ScimResource {
     @JsonIgnore
     private Map<String, Object> _attributes = new HashMap<>();
 
-
     @JsonIgnore
     public Map<String, Object> getAttributes() {
         return _attributes;

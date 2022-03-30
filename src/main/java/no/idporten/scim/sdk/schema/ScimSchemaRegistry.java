@@ -2,6 +2,7 @@ package no.idporten.scim.sdk.schema;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
+import no.idporten.scim.sdk.ScimException;
 import org.springframework.core.io.DefaultResourceLoader;
 
 import java.net.URI;
@@ -12,7 +13,7 @@ public class ScimSchemaRegistry {
     private Map<URI, Schema> schemaMap = new HashMap<>();
 
     public Schema getSchema(URI schemaUri) {
-        return Optional.ofNullable(schemaMap.get(schemaUri)).orElseThrow(() -> new IllegalArgumentException("Unknown schema " + schemaUri));
+        return Optional.ofNullable(schemaMap.get(schemaUri)).orElseThrow(() -> new ScimException(String.format("Unknown schema [%s]",  schemaUri)));
     }
 
     @SneakyThrows
