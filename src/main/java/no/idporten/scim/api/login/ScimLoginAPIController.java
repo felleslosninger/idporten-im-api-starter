@@ -1,5 +1,6 @@
 package no.idporten.scim.api.login;
 
+import lombok.extern.slf4j.Slf4j;
 import no.idporten.scim.api.CreateUserRequest;
 import no.idporten.scim.api.ScimUserResource;
 import no.idporten.scim.api.SearchRequest;
@@ -10,7 +11,10 @@ import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.core.Ordered;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -18,6 +22,7 @@ import java.util.List;
 /**
  * API for checking user status, creating user at first login, and updating logins.
  */
+@Slf4j
 @RestController
 @AutoConfigureOrder(Ordered.LOWEST_PRECEDENCE)
 @ConditionalOnBean(type = "no.idporten.scim.spi.ScimUserService")
