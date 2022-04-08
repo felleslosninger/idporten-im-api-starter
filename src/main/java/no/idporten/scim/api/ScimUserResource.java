@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @Data
 @NoArgsConstructor
@@ -19,7 +22,11 @@ public class ScimUserResource {
     @JsonProperty("person_identifier")
     private String personIdentifier;
 
-    @JsonProperty("closed_code")
-    private String closedCode;
+    @JsonProperty("status")
+    private UserStatus userStatus;
+
+    @JsonProperty("logins")
+    private List<UserLogin> userLogins = new ArrayList<>();
+
 
 }

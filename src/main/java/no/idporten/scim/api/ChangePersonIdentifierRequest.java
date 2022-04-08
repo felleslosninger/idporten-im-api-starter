@@ -8,11 +8,14 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CreateUserRequest {
+public class ChangePersonIdentifierRequest {
 
     @NotEmpty
-    @JsonProperty("person_identifier")
-    private String personIdentifier;
+    @JsonProperty("from_person_identifier")
+    private String fromPersonIdentifier;
 
+    @NotEmpty
+    @JsonProperty("to_person_identifier")
+    private String toPersonIdentifier;
 
 }

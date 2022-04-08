@@ -1,10 +1,7 @@
 package no.idporten.scim.spi;
 
 
-import no.idporten.scim.api.UpdateUserStatusRequest;
-import no.idporten.scim.api.CreateUserRequest;
-import no.idporten.scim.api.ScimUserResource;
-import no.idporten.scim.api.UpdateLoginDetailsRequest;
+import no.idporten.scim.api.*;
 
 import java.util.List;
 
@@ -19,9 +16,10 @@ public interface ScimUserService {
 
     // Login API
     ScimUserResource createUserOnFirstLogin(CreateUserRequest request);
-    ScimUserResource updateLoginDetails(String id, UpdateLoginDetailsRequest request);
+    ScimUserResource updateUserLogins(String id, UpdateUserLoginRequest request);
 
     // User status API
     ScimUserResource updateUserStatus(String id, UpdateUserStatusRequest request);
+    ScimUserResource changePersonIdentifier(ChangePersonIdentifierRequest request);
 
 }

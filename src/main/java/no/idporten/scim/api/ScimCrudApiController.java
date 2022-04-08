@@ -8,22 +8,20 @@ import org.springframework.core.Ordered;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
-/**
- * API for checking user status, creating user at first login, and updating login details.
- */
 @RestController
 @AutoConfigureOrder(Ordered.LOWEST_PRECEDENCE)
 @ConditionalOnBean(type = "no.idporten.scim.spi.ScimUserService")
-public class ScimLoginApiController {
+public class ScimCrudApiController {
 
     private static final String APPLICATION_SCIM_JSON = "application/scim+json";
 
     private final ScimUserService scimUserService;
 
     @Autowired
-    public ScimLoginApiController(ScimUserService scimUserService) {
+    public ScimCrudApiController(ScimUserService scimUserService) {
         this.scimUserService = scimUserService;
     }
 
@@ -47,7 +45,7 @@ public class ScimLoginApiController {
      * @return
      */
     @PostMapping(path = "/scim/v2/users/search", consumes = APPLICATION_SCIM_JSON, produces = APPLICATION_SCIM_JSON)
-    public ResponseEntity<List<ScimUserResource>> searchUser(@RequestBody SearchRequest userSearchRequest) {
+    public ResponseEntity<List<ScimUserResource>> searchUser(@Valid @RequestBody SearchRequest userSearchRequest) {
         List<ScimUserResource> searchResult = scimUserService.searchForUser(userSearchRequest.getPersonIdentifier());
         return ResponseEntity.ok(searchResult);
     }
@@ -58,8 +56,8 @@ public class ScimLoginApiController {
     }
 
     @PostMapping(path = "/scim/v2/users/{id}/logindetails", consumes = APPLICATION_SCIM_JSON, produces = APPLICATION_SCIM_JSON)
-    public ResponseEntity<ScimUserResource> updateLoginDetails(@PathVariable("id") String id, @RequestBody UpdateLoginDetailsRequest request) {
-        return ResponseEntity.ok(scimUserService.updateLoginDetails(id, request));
+    public ResponseEntity<ScimUserResource> updateLoginDetails(@PathVariable("id") String id, @RequestBody UpdateUserLoginRequest request) {
+        return ResponseEntity.ok(scimUserService.updateUserLogins(id, request));
     }
 
 }

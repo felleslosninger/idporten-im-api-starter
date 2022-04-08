@@ -1,22 +1,20 @@
 package no.idporten.scim.api;
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class SearchRequest {
+@AllArgsConstructor
+public class UpdateUserLoginRequest {
 
     @NotEmpty
-    @JsonProperty("person_identifier")
-    private String personIdentifier;
-
+    @JsonProperty("eid_name")
+    private String eidName;
 
 }

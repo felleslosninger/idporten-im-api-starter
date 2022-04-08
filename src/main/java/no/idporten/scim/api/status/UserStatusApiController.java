@@ -1,5 +1,8 @@
-package no.idporten.scim.api;
+package no.idporten.scim.api.status;
 
+import no.idporten.scim.api.ChangePersonIdentifierRequest;
+import no.idporten.scim.api.ScimUserResource;
+import no.idporten.scim.api.UpdateUserStatusRequest;
 import no.idporten.scim.spi.ScimUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
@@ -25,6 +28,11 @@ public class UserStatusApiController {
     @PutMapping(path = "/scim/v2/users/{id}/status", consumes = APPLICATION_SCIM_JSON, produces = APPLICATION_SCIM_JSON)
     public ResponseEntity<ScimUserResource> updateUserStatus(@PathVariable("id") String id, @RequestBody UpdateUserStatusRequest request) {
         return ResponseEntity.ok(scimUserService.updateUserStatus(id, request));
+    }
+
+    @PutMapping(path = "/scim/v2/users/status", consumes = APPLICATION_SCIM_JSON, produces = APPLICATION_SCIM_JSON)
+    public ResponseEntity<ScimUserResource> updateUserStatus(@RequestBody ChangePersonIdentifierRequest request) {
+        return ResponseEntity.ok(scimUserService.changePersonIdentifier(request));
     }
 
 }
