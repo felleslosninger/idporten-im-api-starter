@@ -4,7 +4,7 @@
 [![Build image](https://github.com/felleslosninger/idporten-im-api-starter/actions/workflows/call-buildimage.yml/badge.svg)](https://github.com/felleslosninger/idporten-im-api-starter/actions/workflows/call-buildimage.yml)
 
 
-This library is a Spruing Boot starte defining common APIs for identity management in ID-porten.
+This library is a Spring Boot starter defining common APIs for Identity Management (IM) in ID-porten.
 
 ## Requirements
 
