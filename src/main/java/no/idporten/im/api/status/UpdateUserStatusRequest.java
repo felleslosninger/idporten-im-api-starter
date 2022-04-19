@@ -1,4 +1,4 @@
-package no.idporten.im.api;
+package no.idporten.im.api.status;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,11 +8,10 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CreateUserRequest {
+public class UpdateUserStatusRequest {
 
     @NotEmpty
-    @JsonProperty("person_identifier")
-    private String personIdentifier;
-
+    @JsonProperty("closed_code")
+    private String closedCode;
 
 }

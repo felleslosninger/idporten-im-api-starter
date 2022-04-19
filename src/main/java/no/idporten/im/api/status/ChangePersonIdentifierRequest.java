@@ -1,4 +1,4 @@
-package no.idporten.im.api;
+package no.idporten.im.api.status;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

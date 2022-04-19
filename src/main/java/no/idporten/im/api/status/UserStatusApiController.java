@@ -1,8 +1,6 @@
 package no.idporten.im.api.status;
 
-import no.idporten.im.api.ChangePersonIdentifierRequest;
 import no.idporten.im.api.UserResource;
-import no.idporten.im.api.UpdateUserStatusRequest;
 import no.idporten.im.spi.IDPortenIdentityManagementUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;

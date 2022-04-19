@@ -2,6 +2,10 @@ package no.idporten.im.spi;
 
 
 import no.idporten.im.api.*;
+import no.idporten.im.api.login.CreateUserRequest;
+import no.idporten.im.api.login.UpdateUserLoginRequest;
+import no.idporten.im.api.status.ChangePersonIdentifierRequest;
+import no.idporten.im.api.status.UpdateUserStatusRequest;
 
 import java.util.List;
 

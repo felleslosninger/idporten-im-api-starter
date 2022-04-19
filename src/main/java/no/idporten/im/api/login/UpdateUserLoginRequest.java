@@ -1,4 +1,4 @@
-package no.idporten.im.api;
+package no.idporten.im.api.login;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

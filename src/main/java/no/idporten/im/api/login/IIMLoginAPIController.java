@@ -1,10 +1,8 @@
 package no.idporten.im.api.login;
 
 import lombok.extern.slf4j.Slf4j;
-import no.idporten.im.api.CreateUserRequest;
 import no.idporten.im.api.UserResource;
 import no.idporten.im.api.SearchRequest;
-import no.idporten.im.api.UpdateUserLoginRequest;
 import no.idporten.im.spi.IDPortenIdentityManagementUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;

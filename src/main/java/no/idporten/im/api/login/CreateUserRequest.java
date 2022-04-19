@@ -1,4 +1,4 @@
-package no.idporten.im.api;
+package no.idporten.im.api.login;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,10 +8,11 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateLoginRequest {
+public class CreateUserRequest {
 
     @NotEmpty
-    @JsonProperty("eid_name")
+    @JsonProperty("person_identifier")
     private String personIdentifier;
+
 
 }
