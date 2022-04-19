@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>no.idporten.scim.sdk</groupId>
-    <artifactId>scim-server-spring-starter</artifactId>
+    <groupId>no.idporten.im</groupId>
+    <artifactId>idporten-im-api-starter</artifactId>
     <version>DEV-SNAPSHOT</version>
-    <name>scim-server-sdk</name>
-    <description>SDK for creating a SCIM server</description>
+    <name>idporten-im-api-starter</name>
+    <description>Starter for ID-porten Identity Management API</description>
 
     <properties>
         <java.version>1.8</java.version>

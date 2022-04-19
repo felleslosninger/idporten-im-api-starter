@@ -1,4 +1,4 @@
-package no.idporten.scim.api;
+package no.idporten.im.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,10 +8,10 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateLoginRequest {
+public class UpdateUserStatusRequest {
 
     @NotEmpty
-    @JsonProperty("eid_name")
-    private String personIdentifier;
+    @JsonProperty("closed_code")
+    private String closedCode;
 
 }

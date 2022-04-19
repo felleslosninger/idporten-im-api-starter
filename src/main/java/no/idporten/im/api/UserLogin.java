@@ -1,4 +1,4 @@
-package no.idporten.scim.api;
+package no.idporten.im.api;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;

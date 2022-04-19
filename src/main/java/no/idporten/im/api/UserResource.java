@@ -1,4 +1,4 @@
-package no.idporten.scim.api;
+package no.idporten.im.api;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ScimUserResource {
+public class UserResource {
 
     private boolean active;
 
