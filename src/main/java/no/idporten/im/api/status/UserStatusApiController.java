@@ -22,12 +22,12 @@ public class UserStatusApiController {
         this.identityManagementUserService = identityManagementUserService;
     }
 
-    @PutMapping(path = "/iim/v1/users/{id}/status", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = "/im/v1/users/{id}/status", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserResource> updateUserStatus(@PathVariable("id") String id, @RequestBody UpdateUserStatusRequest request) {
         return ResponseEntity.ok(identityManagementUserService.updateUserStatus(id, request));
     }
 
-    @PutMapping(path = "/iim/v1/users/status", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = "/im/v1/users/status", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserResource> updateUserStatus(@RequestBody ChangePersonIdentifierRequest request) {
         return ResponseEntity.ok(identityManagementUserService.changePersonIdentifier(request));
     }
