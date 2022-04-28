@@ -17,7 +17,7 @@ public class UpdateAttributesRequest {
     private Map<String, Object> _attributes = new HashMap<>();
 
     @JsonAnySetter
-    public void setAttribute(String name, String value) {
+    public void setAttribute(String name, Object value) {
         _attributes.put(name, value);
     }
 
