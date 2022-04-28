@@ -2,10 +2,11 @@ package no.idporten.im.spi;
 
 
 import no.idporten.im.api.*;
+import no.idporten.im.api.admin.UpdateAttributesRequest;
 import no.idporten.im.api.login.CreateUserRequest;
 import no.idporten.im.api.login.UpdateUserLoginRequest;
-import no.idporten.im.api.status.ChangePersonIdentifierRequest;
-import no.idporten.im.api.status.UpdateUserStatusRequest;
+import no.idporten.im.api.admin.ChangeIdentifierRequest;
+import no.idporten.im.api.admin.UpdateStatusRequest;
 
 import java.util.List;
 
@@ -22,8 +23,9 @@ public interface IDPortenIdentityManagementUserService {
     UserResource createUserOnFirstLogin(CreateUserRequest request);
     UserResource updateUserLogins(String id, UpdateUserLoginRequest request);
 
-    // User status API
-    UserResource updateUserStatus(String id, UpdateUserStatusRequest request);
-    UserResource changePersonIdentifier(ChangePersonIdentifierRequest request);
+    // User admin API
+    UserResource updateUserAttributes(String id, UpdateAttributesRequest request);
+    UserResource updateUserStatus(String id, UpdateStatusRequest request);
+    UserResource changePersonIdentifier(ChangeIdentifierRequest request);
 
 }
