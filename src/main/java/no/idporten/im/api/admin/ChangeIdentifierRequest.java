@@ -1,4 +1,4 @@
-package no.idporten.im.api.status;
+package no.idporten.im.api.admin;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,14 +8,14 @@ import javax.validation.constraints.NotEmpty;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ChangePersonIdentifierRequest {
+public class ChangeIdentifierRequest {
 
     @NotEmpty
-    @JsonProperty("from_person_identifier")
-    private String fromPersonIdentifier;
+    @JsonProperty("old_person_identifier")
+    private String oldPersonIdentifier;
 
     @NotEmpty
-    @JsonProperty("to_person_identifier")
-    private String toPersonIdentifier;
+    @JsonProperty("new_person_identifier")
+    private String newPersonIdentifier;
 
 }

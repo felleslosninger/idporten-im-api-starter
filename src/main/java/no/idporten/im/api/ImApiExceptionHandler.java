@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @Slf4j
 @ControllerAdvice("no.idporten.im.api")
-public class IdentityManagementApiExceptionHandler {
+public class ImApiExceptionHandler {
 
     @ExceptionHandler(IdentityManagementApiException.class)
     public ResponseEntity<ErrorResponse> handleIMApiException(IdentityManagementApiException e) {
