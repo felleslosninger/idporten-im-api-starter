@@ -20,7 +20,7 @@ public interface IDPortenIdentityManagementUserService {
     List<UserResource> searchForUser(String pid);
 
     // Login API
-    UserResource createUserOnFirstLogin(CreateUserRequest request);
+    UserResource createUser(CreateUserRequest request);
     UserResource updateUserLogins(String id, UpdateUserLoginRequest request);
 
     // User admin API

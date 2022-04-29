@@ -55,7 +55,7 @@ public class ImApiLoginController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "List of users.  Empty list if no users are found")
     })
-    @PostMapping(path = "/im/v1/users/.search", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/im/v1/login/users/.search", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<UserResource>> searchUser(@Valid @RequestBody SearchRequest searchRequest) {
         return ResponseEntity.ok(identityManagementUserService.searchForUser(searchRequest.getPersonIdentifier()));
     }
@@ -69,7 +69,7 @@ public class ImApiLoginController {
     @Operation(summary = "Create a new user", description = "Create a new user", tags = {"login-api"})
     @PostMapping(path = "/im/v1/login/users/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserResource> createUser(@Valid @RequestBody CreateUserRequest request) {
-         return ResponseEntity.ok(identityManagementUserService.createUserOnFirstLogin(request));
+         return ResponseEntity.ok(identityManagementUserService.createUser(request));
     }
 
     /**
