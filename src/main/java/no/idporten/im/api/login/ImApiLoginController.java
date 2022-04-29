@@ -1,6 +1,8 @@
 package no.idporten.im.api.login;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import no.idporten.im.api.UserResource;
@@ -43,8 +45,17 @@ public class ImApiLoginController {
      * @param searchRequest search request
      * @return list of found users
      */
-    @Operation(summary = "Search for users", description = "Search for users using external references", tags = {"login-api"})
-    @PostMapping(path = "/im/v1/login/users/search", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(
+            summary = "Search for users",
+            description = "Search for users using external references",
+            tags = {"login-api"},
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Empty list if no user's are found")
+            })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "List of users.  Empty list if no users are found")
+    })
+    @PostMapping(path = "/im/v1/users/.search", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<UserResource>> searchUser(@Valid @RequestBody SearchRequest searchRequest) {
         return ResponseEntity.ok(identityManagementUserService.searchForUser(searchRequest.getPersonIdentifier()));
     }
